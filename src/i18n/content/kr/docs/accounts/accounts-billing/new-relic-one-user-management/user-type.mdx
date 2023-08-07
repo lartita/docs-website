@@ -10,15 +10,17 @@ signupBanner:
 translationType: human
 ---
 
-import accountsUserTypeCapabilities from 'images/accounts_diagram_user-type-capabilities.webp'
-
 이 문서에서는 **사용자 유형**을 정의하는 방법, 각 사용자 유형별로 사용할 수 있는 기능 및 사용자 유형을 결정하는 방법을 배울 수 있습니다.
 
 비용이 청구되는 사용자 수를 계산하는 방법에 대해 알고 싶으신가요? [뉴렐릭 요금제](/docs/accounts/accounts-billing/new-relic-one-pricing-billing/new-relic-one-pricing-billing)를 참조하십시오. 아직 계정이 없으시다면, 지금 [뉴렐릭의 기간 제한없는 무료 계정을 신청](https://newrelic.com/signup)하십시오.
 
 ## 사용자 유형이란? [#user-type-defined]
 
-**사용자 유형**에 따라 사용자가 액세스할 수 있는 뉴렐릭 기능들이 결정됩니다. (사용자 유형 외에도 [역할과 관련해 추가적인 제한 사항](/docs/accounts/accounts-billing/new-relic-one-user-management/user-management-concepts/#user-type-groups-relation)이 있을 수 있습니다.)
+뉴렐릭 사용자는 **사용자 유형**에 따라 액세스할 수 있는 뉴렐릭 기능의 최대 집합이 결정됩니다. 사용자 유형은 향후 몇 개월 또는 그 이상 동안 사용자의 예상되는 책임을 기반으로 하는 상당히 장기적인 설정입니다.
+
+사용자의 사용자 유형 선택은 주로 청구와 관련된 결정입니다. 코어 사용자와 전체 플랫폼 사용자는 요금이 청구될 수 있지만 기본 사용자는 그렇지 않습니다. 팀 구성원들이 뉴렐릭을 사용해 어떤 가치를 제공할지 조직이 가진 기대치가 관건입니다. (청구에 대한 자세한 내용은 [사용자 청구](/docs/accounts/accounts-billing/new-relic-one-pricing-billing/user-count-billing)를 참조하십시오.)
+
+사용자 유형을 사용자의 권한을 제어하는 방법으로 사용해서는 **안됩니다**. 뉴렐릭이 각 사용자 유형별로 사용 가능한 기능을 조정하는 경우가 있기 때문입니다. 권한을 제어하려면 [역할](/docs/accounts/accounts-billing/new-relic-one-user-management/user-management-concepts/#user-type-groups-relation)을 사용해 액세스를 제한합니다.
 
 세 가지 사용자 유형이 있습니다.
 
@@ -26,13 +28,7 @@ import accountsUserTypeCapabilities from 'images/accounts_diagram_user-type-capa
 * **코어 사용자(Core user)**: 기본 사용자(Basic user)보다 더 많은 기능을 사용할 수 있습니다.
 * **전체 플랫폼 사용자**: 모든 기능 사용.
 
-사용할 수 있는 기능에 대한 자세한 내용으로 건너뛰려면 [Capabilities(기능)](#user-type-capabilities)을 참조하십시오. 사용자 유형의 개념에 대한 자세한 정보는 아래와 같습니다.
-
-기본 사용자는 무료이며, 코어 사용자(Core user)와 전체 플랫폼 사용자(Full platform user)는 요금이 청구됩니다. 이 문서는 액세스 권한이 있는 사용자 유형에 초점을 맞춥니다. 청구에 대한 자세한 내용은 [사용자 청구](/docs/accounts/accounts-billing/new-relic-one-pricing-billing/user-count-billing)를 참조하십시오.
-
 [뉴렐릭 사용자를 추가](/docs/accounts/accounts-billing/new-relic-one-user-management/tutorial-add-new-user-groups-roles-new-relic-one-user-model/#add-users)해야 하는 경우 주요 결정 요인 중 하나는 사용자 유형을 지정하는 것입니다. 처음에 확실하지 않은 경우는 먼저 기본 사용자로 추가하고 나중에 사용자를 업그레이드할 수 있습니다. 사용자 유형을 조정하는 방법은 [사용자 유형 관리](#manage-user-type)를 참조하십시오.
-
-사용자 유형은 향후 몇 개월, 또는 그 이상 동안 사용자의 예상되는 직무를 기반으로 장기적인 관점에서 결정해야 합니다. 이러한 의도는 뉴렐릭의 [청구 계산 및 다운그레이드 규칙](/docs/accounts/accounts-billing/new-relic-one-pricing-billing/user-count-billing)에 반영되어 있습니다. 사용자가 액세스할 수 있는 항목을 더 자주 또는 더 세밀하게 조정하려면 [사용자 역할(user roles)](/docs/accounts/accounts-billing/new-relic-one-user-management/groups-roles-capabilities)을 사용해야 합니다.
 
 ## 사용자 유형 기능 개요 [#user-type-capabilities]
 
@@ -58,7 +54,7 @@ import accountsUserTypeCapabilities from 'images/accounts_diagram_user-type-capa
   <tbody>
     <tr>
       <td>
-        기본 사용자는 항상 무료입니다. 기본 사용자는 옵저버빌리티 툴을 설정하고, 데이터 쿼리를 실행하고, <InlinePopover type="dashboards"/>를 사용하고, 몇 가지 기본 알림 기능을 사용하는 등의 작업을 수행할 수 있습니다. 그러나 선별된 경험(예: <InlinePopover type="apm"/>UI, 브라우저 UI 또는 모바일 UI)은 **사용할 수 없습니다**.
+        기본 사용자는 무료입니다.기본 사용자는 옵저버빌리티 툴 설정, 데이터 쿼리 실행, 커스텀 대시보드 사용,<InlinePopover type="dashboards"/>(퀵스타트 대시보드 최대 7일), 몇 가지 기본 알림 기능을 사용할 수 있습니다.기본 사용자는 선별된 경험<InlinePopover type="apm"/>(예: UI, 브라우저 UI 또는 모바일 UI)을 **사용할 수 없습니다.**
       </td>
 
       <td>
@@ -72,9 +68,7 @@ import accountsUserTypeCapabilities from 'images/accounts_diagram_user-type-capa
   </tbody>
 </table>
 
-보다 자세한 비교 정보는 [기능 표](#user-type-comparison-table)를 참조하십시오.
-
-사용자 유형은 [역할 관련 권한](/docs/accounts/accounts-billing/new-relic-one-user-management/user-management-concepts#user-type-groups-relation)보다 우선합니다.
+보다 자세한 비교는 [기능 표](#user-type-comparison-table)를 참조하십시오.
 
 ## 사용자 유형을 선택하는 방법 [#choose-user-type]
 
@@ -130,18 +124,888 @@ import accountsUserTypeCapabilities from 'images/accounts_diagram_user-type-capa
 
   데이터, 브라우저 모니터링 데이터 등에 액세스할 수 있지만 선별된 UI 경험에는 액세스할 수 없습니다.
 
-* 사용자 유형은 장기적인 설정입니다. 사용자 유형과 관련된 제한 사항은 역할 기반 권한보다 우선합니다. [사용자 액세스 요소에 대해 보다 자세히 알아보십시오.](/docs/accounts/accounts-billing/new-relic-one-user-management/user-management-concepts#user-type-groups-relation)
+* 사용자 유형은 장기적인 설정입니다. 사용자 유형과 역할 모두 뉴렐릭의 기능들에 대한 액세스를 제어합니다. [사용자 액세스 요소에 대해 자세히 알아보십시오](/docs/accounts/accounts-billing/new-relic-one-user-management/user-management-concepts#user-type-groups-relation).
 
 여러 다른 사용자 유형을 선택하는 이유에 대한 팁은 [사용자 유형 결정 방법](#choose-user-type)을 참조하십시오.
 
-<img
-  title="User type capabilities table"
-  alt="User type capabilities table"
-  src={accountsUserTypeCapabilities}
-/>
+<table>
+  <thead>
+    <tr>
+      <th>
+        기능
+      </th>
 
-* `*` 추가 이용 약관에 따라 달라질 수 있습니다.
-* `**` [취약점 관리](/docs/vulnerability-management/overview)는 최대 100GB의 데이터 인제스트에 포함되어 있으며 [데이터 플러스](/docs/accounts/accounts-billing/new-relic-one-pricing-billing/data-ingest-billing/#data-plus) 옵션이 아닌 경우 한도 이후에는 추가 비용이 발생합니다.
+      <th>
+        기본 사용자 권한
+      </th>
+
+      <th>
+        핵심 사용자 권한
+      </th>
+
+      <th>
+        전체 플랫폼 사용자 권한
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>
+        660개 이상의 통합(Instant Observability 및 퀵스타트 포함, 선별된 뷰 제외)
+      </td>
+
+      <td>
+        <Icon
+          style={{color: '#14E812'}}
+          name="fe-check"
+        />
+      </td>
+
+      <td>
+        <Icon
+          style={{color: '#14E812'}}
+          name="fe-check"
+        />
+      </td>
+
+      <td>
+        <Icon
+          style={{color: '#14E812'}}
+          name="fe-check"
+        />
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        커스텀 차트 및 대시보드
+      </td>
+
+      <td>
+        <Icon
+          style={{color: '#14E812'}}
+          name="fe-check"
+        />
+      </td>
+
+      <td>
+        <Icon
+          style={{color: '#14E812'}}
+          name="fe-check"
+        />
+      </td>
+
+      <td>
+        <Icon
+          style={{color: '#14E812'}}
+          name="fe-check"
+        />
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        커스텀 이벤트
+      </td>
+
+      <td>
+        <Icon
+          style={{color: '#14E812'}}
+          name="fe-check"
+        />
+      </td>
+
+      <td>
+        <Icon
+          style={{color: '#14E812'}}
+          name="fe-check"
+        />
+      </td>
+
+      <td>
+        <Icon
+          style={{color: '#14E812'}}
+          name="fe-check"
+        />
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        [엔터티 탐색기, Lookout, Navigator](/docs/new-relic-solutions/new-relic-one/core-concepts/new-relic-explorer-view-performance-across-apps-services-hosts)
+      </td>
+
+      <td>
+        목록 보기만 가능 <br/><Icon style={{color: '#14E812'}} name="fe-check"/>
+      </td>
+
+      <td>
+        <Icon
+          style={{color: '#14E812'}}
+          name="fe-check"
+        />
+
+        (편향 신호 제외) <br/><Icon style={{color: '#14E812'}} name="fe-check"/>
+      </td>
+
+      <td>
+        <Icon
+          style={{color: '#14E812'}}
+          name="fe-check"
+        />
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        GraphQL API(NerdGraph)
+      </td>
+
+      <td>
+        <Icon
+          style={{color: '#14E812'}}
+          name="fe-check"
+        />
+      </td>
+
+      <td>
+        <Icon
+          style={{color: '#14E812'}}
+          name="fe-check"
+        />
+      </td>
+
+      <td>
+        <Icon
+          style={{color: '#14E812'}}
+          name="fe-check"
+        />
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        앱 내 협업
+      </td>
+
+      <td>
+        <Icon
+          style={{color: '#14E812'}}
+          name="fe-check"
+        />
+      </td>
+
+      <td>
+        <Icon
+          style={{color: '#14E812'}}
+          name="fe-check"
+        />
+      </td>
+
+      <td>
+        <Icon
+          style={{color: '#14E812'}}
+          name="fe-check"
+        />
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        로그 관리
+      </td>
+
+      <td>
+        검색/보기 전용 <br/><Icon style={{color: '#14E812'}} name="fe-check"/>
+      </td>
+
+      <td>
+        <Icon
+          style={{color: '#14E812'}}
+          name="fe-check"
+        />
+      </td>
+
+      <td>
+        <Icon
+          style={{color: '#14E812'}}
+          name="fe-check"
+        />
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        강력한 쿼리 기능
+      </td>
+
+      <td>
+        <Icon
+          style={{color: '#14E812'}}
+          name="fe-check"
+        />
+      </td>
+
+      <td>
+        <Icon
+          style={{color: '#14E812'}}
+          name="fe-check"
+        />
+      </td>
+
+      <td>
+        <Icon
+          style={{color: '#14E812'}}
+          name="fe-check"
+        />
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        퀵스타트 대시보드
+      </td>
+
+      <td>
+        최대 7일 <br/><Icon style={{color: '#14E812'}} name="fe-check"/>
+      </td>
+
+      <td>
+        최대 7일 <br/><Icon style={{color: '#14E812'}} name="fe-check"/>
+      </td>
+
+      <td>
+        <Icon
+          style={{color: '#14E812'}}
+          name="fe-check"
+        />
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        알림 및 공지 수신
+      </td>
+
+      <td>
+        <Icon
+          style={{color: '#14E812'}}
+          name="fe-check"
+        />
+      </td>
+
+      <td>
+        <Icon
+          style={{color: '#14E812'}}
+          name="fe-check"
+        />
+      </td>
+
+      <td>
+        <Icon
+          style={{color: '#14E812'}}
+          name="fe-check"
+        />
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        관리자 설정(결제 및 사용자 관리)
+      </td>
+
+      <td>
+        <Icon
+          style={{color: '#FA492B'}}
+          name="fe-x-circle"
+        />
+      </td>
+
+      <td>
+        <Icon
+          style={{color: '#14E812'}}
+          name="fe-check"
+        />
+      </td>
+
+      <td>
+        <Icon
+          style={{color: '#14E812'}}
+          name="fe-check"
+        />
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        커스텀 뉴렐릭 앱 구축 및 실행 **\***
+      </td>
+
+      <td>
+        <Icon
+          style={{color: '#FA492B'}}
+          name="fe-x-circle"
+        />
+      </td>
+
+      <td>
+        <Icon
+          style={{color: '#14E812'}}
+          name="fe-check"
+        />
+      </td>
+
+      <td>
+        <Icon
+          style={{color: '#14E812'}}
+          name="fe-check"
+        />
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        Errors inbox으로 오류 추적
+      </td>
+
+      <td>
+        <Icon
+          style={{color: '#FA492B'}}
+          name="fe-x-circle"
+        />
+      </td>
+
+      <td>
+        속성 분석 제외 <br/><Icon style={{color: '#14E812'}} name="fe-check"/>
+      </td>
+
+      <td>
+        <Icon
+          style={{color: '#14E812'}}
+          name="fe-check"
+        />
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        뉴렐릭 CodeStream IDE 확장
+      </td>
+
+      <td>
+        <Icon
+          style={{color: '#FA492B'}}
+          name="fe-x-circle"
+        />
+      </td>
+
+      <td>
+        <Icon
+          style={{color: '#14E812'}}
+          name="fe-check"
+        />
+      </td>
+
+      <td>
+        <Icon
+          style={{color: '#14E812'}}
+          name="fe-check"
+        />
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        AIOps(IT 운영을 위한 인공 지능)
+      </td>
+
+      <td>
+        <Icon
+          style={{color: '#FA492B'}}
+          name="fe-x-circle"
+        />
+      </td>
+
+      <td>
+        <Icon
+          style={{color: '#FA492B'}}
+          name="fe-x-circle"
+        />
+      </td>
+
+      <td>
+        <Icon
+          style={{color: '#14E812'}}
+          name="fe-check"
+        />
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        애플리케이션 성능 모니터링(APM)
+      </td>
+
+      <td>
+        <Icon
+          style={{color: '#FA492B'}}
+          name="fe-x-circle"
+        />
+      </td>
+
+      <td>
+        <Icon
+          style={{color: '#FA492B'}}
+          name="fe-x-circle"
+        />
+      </td>
+
+      <td>
+        <Icon
+          style={{color: '#14E812'}}
+          name="fe-check"
+        />
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        브라우저 모니터링
+      </td>
+
+      <td>
+        <Icon
+          style={{color: '#FA492B'}}
+          name="fe-x-circle"
+        />
+      </td>
+
+      <td>
+        <Icon
+          style={{color: '#FA492B'}}
+          name="fe-x-circle"
+        />
+      </td>
+
+      <td>
+        <Icon
+          style={{color: '#14E812'}}
+          name="fe-check"
+        />
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        변경 추적
+      </td>
+
+      <td>
+        <Icon
+          style={{color: '#FA492B'}}
+          name="fe-x-circle"
+        />
+      </td>
+
+      <td>
+        <Icon
+          style={{color: '#FA492B'}}
+          name="fe-x-circle"
+        />
+      </td>
+
+      <td>
+        <Icon
+          style={{color: '#14E812'}}
+          name="fe-check"
+        />
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        데이터베이스 모니터링
+      </td>
+
+      <td>
+        <Icon
+          style={{color: '#FA492B'}}
+          name="fe-x-circle"
+        />
+      </td>
+
+      <td>
+        <Icon
+          style={{color: '#FA492B'}}
+          name="fe-x-circle"
+        />
+      </td>
+
+      <td>
+        <Icon
+          style={{color: '#14E812'}}
+          name="fe-check"
+        />
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        분산 추적
+      </td>
+
+      <td>
+        <Icon
+          style={{color: '#FA492B'}}
+          name="fe-x-circle"
+        />
+      </td>
+
+      <td>
+        <Icon
+          style={{color: '#FA492B'}}
+          name="fe-x-circle"
+        />
+      </td>
+
+      <td>
+        <Icon
+          style={{color: '#14E812'}}
+          name="fe-check"
+        />
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        인프라 모니터링
+      </td>
+
+      <td>
+        <Icon
+          style={{color: '#FA492B'}}
+          name="fe-x-circle"
+        />
+      </td>
+
+      <td>
+        <Icon
+          style={{color: '#FA492B'}}
+          name="fe-x-circle"
+        />
+      </td>
+
+      <td>
+        <Icon
+          style={{color: '#14E812'}}
+          name="fe-check"
+        />
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        Pixie를 사용한 쿠버네티스 모니터링 **\***
+      </td>
+
+      <td>
+        <Icon
+          style={{color: '#FA492B'}}
+          name="fe-x-circle"
+        />
+      </td>
+
+      <td>
+        <Icon
+          style={{color: '#FA492B'}}
+          name="fe-x-circle"
+        />
+      </td>
+
+      <td>
+        <Icon
+          style={{color: '#14E812'}}
+          name="fe-check"
+        />
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        머신 러닝(ML) 모델 성능 모니터링(MLOps)
+      </td>
+
+      <td>
+        <Icon
+          style={{color: '#FA492B'}}
+          name="fe-x-circle"
+        />
+      </td>
+
+      <td>
+        <Icon
+          style={{color: '#FA492B'}}
+          name="fe-x-circle"
+        />
+      </td>
+
+      <td>
+        <Icon
+          style={{color: '#14E812'}}
+          name="fe-check"
+        />
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        모바일 모니터링
+      </td>
+
+      <td>
+        <Icon
+          style={{color: '#FA492B'}}
+          name="fe-x-circle"
+        />
+      </td>
+
+      <td>
+        <Icon
+          style={{color: '#FA492B'}}
+          name="fe-x-circle"
+        />
+      </td>
+
+      <td>
+        <Icon
+          style={{color: '#14E812'}}
+          name="fe-check"
+        />
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        네트워크 모니터링
+      </td>
+
+      <td>
+        <Icon
+          style={{color: '#FA492B'}}
+          name="fe-x-circle"
+        />
+      </td>
+
+      <td>
+        <Icon
+          style={{color: '#FA492B'}}
+          name="fe-x-circle"
+        />
+      </td>
+
+      <td>
+        <Icon
+          style={{color: '#14E812'}}
+          name="fe-check"
+        />
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        OpenTelemetry 모니터링
+      </td>
+
+      <td>
+        <Icon
+          style={{color: '#FA492B'}}
+          name="fe-x-circle"
+        />
+      </td>
+
+      <td>
+        <Icon
+          style={{color: '#FA492B'}}
+          name="fe-x-circle"
+        />
+      </td>
+
+      <td>
+        <Icon
+          style={{color: '#14E812'}}
+          name="fe-check"
+        />
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        보안 모니터링(취약점 관리) **\*\***
+      </td>
+
+      <td>
+        <Icon
+          style={{color: '#FA492B'}}
+          name="fe-x-circle"
+        />
+      </td>
+
+      <td>
+        <Icon
+          style={{color: '#FA492B'}}
+          name="fe-x-circle"
+        />
+      </td>
+
+      <td>
+        <Icon
+          style={{color: '#14E812'}}
+          name="fe-check"
+        />
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        서버리스 모니터링
+      </td>
+
+      <td>
+        <Icon
+          style={{color: '#FA492B'}}
+          name="fe-x-circle"
+        />
+      </td>
+
+      <td>
+        <Icon
+          style={{color: '#FA492B'}}
+          name="fe-x-circle"
+        />
+      </td>
+
+      <td>
+        <Icon
+          style={{color: '#14E812'}}
+          name="fe-check"
+        />
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        서비스 및 엔터티 맵
+      </td>
+
+      <td>
+        <Icon
+          style={{color: '#FA492B'}}
+          name="fe-x-circle"
+        />
+      </td>
+
+      <td>
+        <Icon
+          style={{color: '#FA492B'}}
+          name="fe-x-circle"
+        />
+      </td>
+
+      <td>
+        <Icon
+          style={{color: '#14E812'}}
+          name="fe-check"
+        />
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        서비스 수준 관리
+      </td>
+
+      <td>
+        <Icon
+          style={{color: '#FA492B'}}
+          name="fe-x-circle"
+        />
+      </td>
+
+      <td>
+        <Icon
+          style={{color: '#FA492B'}}
+          name="fe-x-circle"
+        />
+      </td>
+
+      <td>
+        <Icon
+          style={{color: '#14E812'}}
+          name="fe-check"
+        />
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        신세틱 모니터링
+      </td>
+
+      <td>
+        <Icon
+          style={{color: '#FA492B'}}
+          name="fe-x-circle"
+        />
+      </td>
+
+      <td>
+        <Icon
+          style={{color: '#FA492B'}}
+          name="fe-x-circle"
+        />
+      </td>
+
+      <td>
+        <Icon
+          style={{color: '#14E812'}}
+          name="fe-check"
+        />
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        Workloads
+      </td>
+
+      <td>
+        <Icon
+          style={{color: '#FA492B'}}
+          name="fe-x-circle"
+        />
+      </td>
+
+      <td>
+        <Icon
+          style={{color: '#FA492B'}}
+          name="fe-x-circle"
+        />
+      </td>
+
+      <td>
+        <Icon
+          style={{color: '#14E812'}}
+          name="fe-check"
+        />
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+**\*** 추가 이용약관이 적용됩니다.
+
+**\*\*** 뉴렐릭 [Vulnerability Management](/docs/vulnerability-management/overview)는 최대 100GB의 데이터 인제스트에 포함되어 있으며 [데이터 플러스](/docs/accounts/accounts-billing/new-relic-one-pricing-billing/data-ingest-billing/#data-prices) 옵션이 아닌 경우 한도 이후에는 추가 비용이 발생합니다.
 
 일부 기능에 대한 권한에 대한 추가적인 정보는 다음과 같습니다.
 
@@ -309,21 +1173,19 @@ import accountsUserTypeCapabilities from 'images/accounts_diagram_user-type-capa
       <tbody>
         <tr>
           <td>
-            * 로그 데이터 검색, 보기 및 쿼리
-            * 저장된 뷰 수
-            * 속성
+            * 로그 검색
+            * Data Plus 고객을 위한 로그 패턴, 구문 분석 규칙, 파티션, 삭제 필터, 난독화 규칙 및 표현식 확인
+            * 드롭 필터 생성
+            * 프라이빗 뷰 생성
           </td>
 
           <td>
-            **기본 사용자** 열에 포함된 기능과 다음의 모든 기능 포함:
+            모든 기능 사용. 여기에는 **기본 사용자** 열의 기능과 다음 기능이 포함됩니다.
 
-            * 패턴
-            * 드롭 필터
-            * 구문 분석
-            * 데이터 분할
+            * 패턴, 구문 분석 규칙, 파티션 및 드롭 필터 구성
             * 사용자 정의 규칙 및 논리 정의
-            * 로그 난독화( [Data Plus](/docs/accounts/accounts-billing/new-relic-one-pricing-billing/data-ingest-billing#data-prices)에서 사용 가능)
-            * [라이브테일](/docs/logs/troubleshooting/view-log-messages-real-time-live-tail)
+            * 로그 난독화 구성 ([Data Plus](/docs/accounts/accounts-billing/new-relic-one-pricing-billing/data-ingest-billing#data-prices)에서 사용 가능)
+            * [라이브 테일 로그](/docs/logs/troubleshooting/view-log-messages-real-time-live-tail)사용
 
             이러한 사용자는 액세스 권한이 있는 UI 환경에 대한 [문맥적 로그](/docs/logs/logs-context/configure-logs-context-apm-agents)를 볼 수도 있습니다. (예: 코어 사용자는 에러 인박스 UI에서 로그 데이터를 볼 수 있음)
           </td>

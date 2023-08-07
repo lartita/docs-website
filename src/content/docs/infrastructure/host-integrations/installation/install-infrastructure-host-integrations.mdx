@@ -46,7 +46,17 @@ There are multiple ways to install on-host integrations depending on your setup 
 
 ## What do you need? [#what-need]
 
-To collect data from on-host services, all you need are two things: the [infrastructure agent](/docs/infrastructure/install-infrastructure-agent/get-started/install-infrastructure-agent), and the [on-host integrations](/docs/integrations/host-integrations/getting-started/introduction-host-integrations). All on-host integrations require that our infrastructure agent is [installed on the host](/docs/infrastructure/install-infrastructure-agent/get-started/install-infrastructure-agent). Besides collecting system's data, the agent acts as a forwarder for integrations's data, and can forward [logs](/docs/logs/enable-log-monitoring-new-relic/enable-log-monitoring-new-relic/forward-your-logs-using-infrastructure-agent).
+To collect data from on-host services, all you need is:
+- The [infrastructure agent](/docs/infrastructure/install-infrastructure-agent/get-started/install-infrastructure-agent)
+- The [on-host integrations](/docs/integrations/host-integrations/getting-started/introduction-host-integrations).
+
+All on-host integrations require that our infrastructure agent is [installed on the host](/docs/infrastructure/install-infrastructure-agent/get-started/install-infrastructure-agent). Besides collecting system's data, the agent acts as a forwarder for integrations's data, and can forward [logs](/docs/logs/enable-log-monitoring-new-relic/enable-log-monitoring-new-relic/forward-your-logs-using-infrastructure-agent).
+
+For example, for SQL Server:
+- Host 1 with the infrastructure agent installed needs an outbound rule for port `1433`.
+- Host 2 with SQL Server needs an inbound rule for port `1433`.
+
+In this example, host 1 pulls data from host 2.
 
 <img
   title="Agents and New Relic"
@@ -104,7 +114,7 @@ If you are running services without orchestration or on-premises, choose your sc
     id="apt"
     title={<>Install with apt (<img src={osDebian} title="Debian icon" alt="Debian.webp" style={{ height: '32px', width: '32px', verticalAlign: 'middle' }}/>Debian, <img src={osUbuntu} title="ubuntu icon" alt="ubuntu icon" style={{ height: '32px', width: '32px', verticalAlign: 'middle' }}/>Ubuntu)</>}
   >
-    To install an Infrastructure on-host integration with `apt`:
+    To install an infrastructure on-host integration with `apt`:
 
     1. If you do not already have it, [install the infrastructure agent](/docs/infrastructure/install-infrastructure-agent/get-started/install-infrastructure-agent-new-relic) for your operating system.
     2. From the command line, run:
@@ -146,7 +156,7 @@ If you are running services without orchestration or on-premises, choose your sc
   >
     To install an on-host integration with zypper:
 
-    1. If you do not already have New Relic Infrastructure, [install the infrastructure agent](/docs/infrastructure/install-infrastructure-agent/get-started/install-infrastructure-agent-new-relic) for your operating system.
+    1. If you don't already have New Relic infrastructure monitoring, [install the infrastructure agent](/docs/infrastructure/install-infrastructure-agent/get-started/install-infrastructure-agent-new-relic) for your operating system.
     2. From the command line, run:
 
        ```

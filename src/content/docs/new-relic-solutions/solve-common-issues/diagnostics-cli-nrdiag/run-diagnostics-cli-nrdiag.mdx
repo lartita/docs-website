@@ -9,6 +9,16 @@ redirects:
   - /docs/using-new-relic/cross-product-functions/diagnostics-cli-nrdiag/run-diagnostics-cli-nrdiag
 ---
 
+import solutionsUbuntuDiagnostics from 'images/solutions_screenshot-crop_ubuntu-diagnostics.gif'
+
+<ButtonLink
+  role="button"
+  to="https://one.newrelic.com/launcher/diagnostics?pane=eyJuZXJkbGV0SWQiOiJkaWFnbm9zdGljcy5jbGktb3V0cHV0IiwgInNob3dJbnN0YWxsUnVuTW9kYWwiOiB0cnVlfQ=="
+  variant="primary"
+>
+  Run the CLI
+</ButtonLink>
+
 ## Install and run the Diagnostics CLI
 
 The Diagnostics CLI can be installed and run with a single command on Linux and Windows. This installation method will download the Diagnostics CLI binary to the present working directory. The Diagnostics CLI automatically searches its root directory and subdirectories for agent configuration files and other relevant data.
@@ -113,7 +123,7 @@ To manually install and run the Diagnostics CLI, follow the procedures for your 
        ./nrdiag CLI_OPTIONS
        ```
 
-       The Diagnostics CLI outputs any issues it discovers, and uploads relevant files to your New Relic account if you include an attachment flag.
+       The Diagnostics CLI outputs any issues it discovers and uploads relevant files to your New Relic account if you include the `-attach` flag.
   </Collapser>
 
   <Collapser
@@ -244,44 +254,89 @@ To run from PowerShell, add `./` to the start of `cmd`.
 ## Upload results to a New Relic account [#attach-account-results]
 
 <Callout variant="important">
-  If your system is configured to **not** connect to external IP addresses, this method will not work. Instead, attach the [output files](/docs/using-new-relic/cross-product-functions/diagnostics-cli-nrdiag/interpret-nrdiag-output) in an email to New Relic Support. If there is an issue with your <InlinePopover type="licenseKey" />, you will also need to send your output files in an email to support.
+  If your system is **not** configured to connect to external IP addresses, this method will not work. Instead, attach the [output files](/docs/using-new-relic/cross-product-functions/diagnostics-cli-nrdiag/interpret-nrdiag-output) in an email to New Relic Support.
 </Callout>
 
-### Automatic Account upload [#automatic]
+### Automatic account upload [#automatic]
 
-To upload your results automatically to a New Relic account when the Diagnostics CLI is executed, use the `-attach` or `-a` command line flag. This will validate any New Relic License Keys found in your environment for upload.
+To upload your results automatically to a New Relic account when the Diagnostics CLI is executed, use either the `-attach` or `-api-key` command line flags. The `-attach` flag will validate any New Relic license keys found in your environment and upload the run to the account associated with the license key. Alternatively, the `-api-key` flag will use the <InlinePopover type="userKey" /> provided to upload the run, regardless of the presence of a valid license key.
 
 Uploading your results to an account will automatically upload the contents of the `nrdiag-output.json` and `nrdiag-output.zip`.
 
-**Linux and macOS:**
+<CollapserGroup>
+  <Collapser
+    id="linux-attach-examples"
+    title="Linux and macOS"
+  >
+    * For 64-bit systems:
 
-* For 64-bit systems:
+      ```
+      ./nrdiag_x64 -attach
+      ```
 
-  ```
-  ./nrdiag_x64 -attach
-  ```
-* For ARM64 systems:
+      OR
 
-  ```
-  ./nrdiag_arm64 -attach
-  ```
+      ```
+      ./nrdiag_x64 -api-key ${API_KEY}
+      ```
+    * For ARM64 systems:
 
-**Windows:**
+      ```
+      ./nrdiag_arm64 -attach
+      ```
 
-To run from PowerShell, add `./` to the start of `cmd`.
+      OR
 
-* For 32-bit systems:
+      ```
+      ./nrdiag_arm64 -api-key ${API_KEY}
+      ```
+  </Collapser>
+  <Collapser
+    id="windows-attach-examples"
+    title="Windows"
+  >
+    To run from PowerShell, add `./` to the start of `cmd`.
 
-  ```
-  nrdiag.exe -attach
-  ```
-* For 64-bit systems:
+    * For 32-bit systems:
 
-  ```
-  nrdiag_x64.exe -attach
-  ```
-* For ARM64 systems:
+      ```
+      nrdiag.exe -attach
+      ```
 
-  ```
-  nrdiag_arm64.exe -attach
-  ```
+      OR
+
+      ```
+      nrdiag -api-key ${API_KEY}
+      ```
+    * For 64-bit systems:
+
+      ```
+      nrdiag_x64.exe -attach
+      ```
+
+      OR
+
+      ```
+      nrdiag_x64 -api-key ${API_KEY}
+      ```
+    * For ARM64 systems:
+
+      ```
+      nrdiag_arm64.exe -attach
+      ```
+
+      OR
+
+      ```
+      nrdiag_arm64 -api-key ${API_KEY}
+      ```
+  </Collapser>
+</CollapserGroup>
+
+### Region Selection [#region]
+
+By default, the Diagnostics CLI uploads results to New Relic accounts hosted in the US data center. If your account is hosted in the EU data center, ensure to add `-region eu` to the command.
+
+```
+./nrdiag -region eu ...
+```

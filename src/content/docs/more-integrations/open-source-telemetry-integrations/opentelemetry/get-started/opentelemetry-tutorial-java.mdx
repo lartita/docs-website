@@ -73,7 +73,7 @@ While each tutorial uses the same demo app, they have different approaches to he
 <Callout variant="tip">
 You have two choices for exporting data from your application to New Relic via OTLP:
 * Directly from your app
-* Via an OpenTelemetry collector
+* Via an OpenTelemetry Collector
 
 This guide covers the first option. If you wish to export your data via a collector, check out this [collector documentation](/docs/more-integrations/open-source-telemetry-integrations/opentelemetry/collector/opentelemetry-collector-basic/) for details.
 </Callout>
@@ -1023,7 +1023,7 @@ This is a list of the environment variables you should export if you're doing tu
         </tr>
         <tr>
           <td>
-            OTEL_EXPORTER_OTLP_METRICS_DEFAULT_HISTOGRAM_AGGREGATION=EXPONENTIAL_BUCKET_HISTOGRAM
+            OTEL_EXPORTER_OTLP_METRICS_DEFAULT_HISTOGRAM_AGGREGATION=BASE2_EXPONENTIAL_BUCKET_HISTOGRAM
 
             * (Recommended) Histogram aggregation: Use exponential histogram instead of default explicit bucket histogram for better data compression.
           </td>

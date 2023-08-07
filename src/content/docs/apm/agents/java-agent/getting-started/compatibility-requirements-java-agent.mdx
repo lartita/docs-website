@@ -89,7 +89,7 @@ Before you install the Java agent, ensure your system meets these requirements:
           </td>
 
           <td>
-            v4.9.0 and lower
+            v5.14.0 and lower
           </td>
         </tr>
 
@@ -103,7 +103,7 @@ Before you install the Java agent, ensure your system meets these requirements:
           </td>
 
           <td>
-            v4.9.0 and lower
+            v5.14.0 and lower
           </td>
         </tr>
 
@@ -117,7 +117,7 @@ Before you install the Java agent, ensure your system meets these requirements:
           </td>
 
           <td>
-            v4.9.0a and lower
+            v5.14.0 and lower
           </td>
         </tr>
 
@@ -131,7 +131,7 @@ Before you install the Java agent, ensure your system meets these requirements:
           </td>
 
           <td>
-            v4.9.0 and lower
+            v5.14.0 and lower
           </td>
         </tr>
 
@@ -145,7 +145,7 @@ Before you install the Java agent, ensure your system meets these requirements:
           </td>
 
           <td>
-            v4.9.0 and lower
+            v5.14.0 and lower
           </td>
         </tr>
 
@@ -159,7 +159,7 @@ Before you install the Java agent, ensure your system meets these requirements:
           </td>
 
           <td>
-            NA
+            v5.14.0 and lower
           </td>
         </tr>
 
@@ -173,7 +173,7 @@ Before you install the Java agent, ensure your system meets these requirements:
           </td>
 
           <td>
-            NA
+            v5.14.0 and lower
           </td>
         </tr>
 
@@ -187,7 +187,7 @@ Before you install the Java agent, ensure your system meets these requirements:
           </td>
 
           <td>
-            NA
+            v5.14.0 and lower
           </td>
         </tr>
 
@@ -253,7 +253,7 @@ Before you install the Java agent, ensure your system meets these requirements:
           </td>
 
           <td>
-            v7.11.0
+            v7.11.0 to current
           </td>
 
           <td>
@@ -261,6 +261,19 @@ Before you install the Java agent, ensure your system meets these requirements:
           </td>
         </tr>
 
+        <tr>
+          <td>
+            Java 20
+          </td>
+
+          <td>
+            v8.2.0
+          </td>
+
+          <td>
+            NA
+          </td>
+        </tr>
       </tbody>
     </table>
 
@@ -268,13 +281,13 @@ Before you install the Java agent, ensure your system meets these requirements:
 
     * IBM JVM versions 8 for Linux
     * Eclipse OpenJ9 versions 8 to 19 for Linux, Windows, and macOS
-    * OpenJDK versions 8 to 19 for Linux, Windows, and macOS
+    * OpenJDK versions 8 to 20 for Linux, Windows, and macOS
     * AdoptOpenJDK versions 8 to 16 for Linux, Windows, and macOS
-    * Temurin version 17 to 19 for Linux, Windows, and macOS
-    * Oracle Hotspot JVM versions 8 to 19 for Linux, Solaris, Windows, and macOS
+    * Temurin version 17 to 20 for Linux, Windows, and macOS
+    * Oracle Hotspot JVM versions 8 to 20 for Linux, Solaris, Windows, and macOS
     * Azul Zing JVM versions 8 and 11 for Linux, Windows, and macOS
-    * Azul Zulu JVM versions 8 to 19 for Linux, Windows, and macOS
-    * Amazon Corretto JVM versions 8, 11, and 17 to 19 for Linux, Windows, and macOS
+    * Azul Zulu JVM versions 8 to 20 for Linux, Windows, and macOS
+    * Amazon Corretto JVM versions 8, 11, and 17 to 20 for Linux, Windows, and macOS
     * Alibaba Dragonwell JVM versions 8 and 11 for Linux, Windows, and macOS
 
     (Java 1.7) Compatible only with [Java agent 6.5.x](https://download.newrelic.com/newrelic/java-agent/newrelic-agent/6.5.3/newrelic-java-6.5.3.zip) \[ZIP | 16.8 MB] legacy agent:
@@ -414,10 +427,12 @@ The agent automatically instruments these frameworks and libraries:
     * Apache Httpclient from 3.1 to 4.5.x
     * java.net.HttpURLConnection
     * JMS from 1.1 to latest
-    * [Kafka Clients](/docs/agents/java-agent/instrumentation/use-kafka-message-queues) 0.10.0.0 to latest (for metric and event data)
-    * [Kafka Clients](/docs/agents/java-agent/instrumentation/use-kafka-message-queues) 0.11.0.0 to latest (for distributed tracing and event data)
-    * [Kafka Streams](/docs/agents/java-agent/instrumentation/use-kafka-message-queues) 1.0.0 to latest (for metrics)
-    * [Kafka Streams](/docs/agents/java-agent/instrumentation/use-kafka-message-queues) 2.0.0 to latest (for distributed tracing and transaction data)
+    * [Kafka Clients](/docs/agents/java-agent/instrumentation/java-agent-instrument-kafka-message-queues) 0.10.0.0 to latest (for metric and event data)
+    * [Kafka Clients](/docs/agents/java-agent/instrumentation/java-agent-instrument-kafka-message-queues) 0.11.0.0 to latest (for distributed tracing and event data)
+    * [Kafka Connect](/docs/agents/java-agent/instrumentation/java-agent-instrument-kafka-message-queues) 1.0.0 to latest (for metrics)
+    * [Kafka Connect](/docs/agents/java-agent/instrumentation/java-agent-instrument-kafka-message-queues) 2.0.0 to latest (for distributed tracing and transaction data)
+    * [Kafka Streams](/docs/agents/java-agent/instrumentation/java-agent-instrument-kafka-message-queues) 1.0.0 to latest (for metrics)
+    * [Kafka Streams](/docs/agents/java-agent/instrumentation/java-agent-instrument-kafka-message-queues) 2.0.0 to latest (for distributed tracing and transaction data)
     * OkHttp 3.6.0 to latest
     * Ning AsyncHttpClient 1.x
     * Play WS
@@ -559,7 +574,7 @@ The Java agent integrates with other New Relic products to give you end-to-end v
       </td>
 
       <td>
-        When you install the Infrastructure and APM agents on the same host, they automatically detect one another. You can then view a list of hosts in the APM UI, and filter your Infrastructure hosts by APM app in the Infrastructure UI. For more information, see [APM data in Infrastructure](/docs/infrastructure/new-relic-infrastructure/data-instrumentation/new-relic-apm-data-infrastructure).
+        When you install the infrastructure and APM agents on the same host, they automatically detect one another. You can then view a list of hosts in the APM UI, and filter your hosts by APM app in our infrastructure UI. For more information, see [APM data in the infrastructure UI](/docs/infrastructure/new-relic-infrastructure/data-instrumentation/new-relic-apm-data-infrastructure).
       </td>
     </tr>
 

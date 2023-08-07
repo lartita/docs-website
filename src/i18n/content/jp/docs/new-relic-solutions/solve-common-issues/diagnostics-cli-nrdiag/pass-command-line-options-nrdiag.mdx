@@ -37,6 +37,28 @@ Diagnostics CLIで以下のコマンドラインオプションを使用する�
     </tr>
 
     <tr>
+      <td>
+        `-api-key`
+      </td>
+
+      <td>
+        結果を New relic アカウントにアップロードするときに使用するユーザー API キー。これにより、ライセンス キーの使用がバイパスされ、 <InlinePopover type="userKey"/>代わりに結果を添付します。
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `-r`
+
+        `-region`
+      </td>
+
+      <td>
+        New Relic アカウントがホストされている [リージョン](/docs/accounts/accounts-billing/account-setup/choose-your-data-center/) 。受け入れられる値: EU または US。大文字小文字を区別しません。デフォルト: 米国
+      </td>
+    </tr>
+
+    <tr>
       <td id="browser-check">
         `-browser-url STRING`
       </td>
@@ -92,7 +114,7 @@ Diagnostics CLIで以下のコマンドラインオプションを使用する�
       </td>
 
       <td>
-        `nrdiag-output.zip`にファイルまたはディレクトリ（サブディレクトリを含む）を含めます。 4GBに制限します。結果をNewRelicにアップロードするには、 `-a`フラグも使用します。
+        `nrdiag-output.zip`にファイルまたはディレクトリ (サブディレクトリを含む) を含めます。4GB を制限します。 `-a` または `-api-key` フラグを使用して、結果を New Relic にアップロードします。
 
         構文例：
 

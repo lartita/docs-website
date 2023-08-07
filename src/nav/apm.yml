@@ -1,13 +1,22 @@
 title: Application performance monitoring
 path: /docs/apm
 pages:
-  - title: Introduction to APM
+  - title: Get started with APM
     path: /introduction-apm
-  - title: APM best practice guide
-    path: /docs/new-relic-solutions/best-practices-guides/full-stack-observability/apm-best-practices-guide
-  - title: APM data security
-    path: /docs/apm/new-relic-apm/getting-started/apm-agent-data-security
-  - title: Install and configure APM agents
+  - title: My app is slow
+    label: Tutorial
+    path: /docs/tutorial-app-slow/root-causes
+  - title: Guides
+    pages:
+    - title: Troubleshoot with the summary page
+      path: /docs/apm/agents/manage-apm-agents/agent-data/triage-run-diagnostics
+    - title: APM best practice guide
+      path: /docs/new-relic-solutions/best-practices-guides/full-stack-observability/apm-best-practices-guide
+    - title: 'Measure user satisfaction with Apdex'
+      path: /docs/apm/new-relic-apm/apdex/apdex-measure-user-satisfaction
+    - title: APM data security
+      path: /docs/apm/new-relic-apm/getting-started/apm-agent-data-security
+  - title: Installation and configuration
     pages:
       - title: Go monitoring
         path: /docs/apm/agents/go-agent
@@ -136,6 +145,8 @@ pages:
                     path: /docs/apm/agents/java-agent/additional-installation/install-new-relic-java-agent-gae-flexible-environment
                   - title: JVM argument
                     path: /docs/apm/agents/java-agent/installation/include-java-agent-jvm-argument/
+                  - title: Java 2 Security
+                    path: /docs/apm/agents/java-agent/additional-installation/install-java-agent-java-2-security
               - title: Name your Java application
                 path: /docs/apm/agents/java-agent/configuration/name-your-java-application
               - title: Java agent config file template
@@ -467,6 +478,8 @@ pages:
                 path: /docs/apm/agents/net-agent/troubleshooting/resolve-net-scom-conflicts
               - title: No stack traces
                 path: /docs/apm/agents/net-agent/troubleshooting/no-stack-traces-dotnet
+              - title: Minimal APIs endpoints appear as one transaction (.NET)
+                path: /docs/apm/agents/net-agent/troubleshooting/minimal-api-duplicate-routes-net
               - title: 'WCF apps: agent changes Content-Type header'
                 path: /docs/apm/agents/net-agent/troubleshooting/agent-changes-content-type-header-wcf-apps-net
       - title: Node.js monitoring
@@ -733,6 +746,10 @@ pages:
                 path: /docs/apm/agents/php-agent/frameworks-libraries/predis-library-php
               - title: WordPress specific functionality
                 path: /docs/apm/agents/php-agent/frameworks-libraries/wordpress-specific-functionality
+          - title: Other integrations
+            pages:
+              - title: Magento business insights
+                path: /docs/apm/agents/php-agent/other-integrations/magento-business-insights
           - title: Troubleshooting
             path: /docs/apm/agents/php-agent/troubleshooting
             pages:
@@ -1143,6 +1160,8 @@ pages:
                 path: /docs/apm/agents/ruby-agent/troubleshooting/generating-logs-troubleshooting-ruby
               - title: Incompatible gems
                 path: /docs/apm/agents/ruby-agent/troubleshooting/incompatible-gems
+              - title: Incorrect metrics with Unicorn
+                path: /docs/apm/agents/ruby-agent/troubleshooting/incorrect-data-unicorn
               - title: Control when the agent starts
                 path: /docs/apm/agents/ruby-agent/troubleshooting/control-when-ruby-agent-starts
               - title: 'SystemStackError: stack level too deep'
@@ -1261,8 +1280,6 @@ pages:
                 path: /docs/apm/agents/manage-apm-agents/troubleshooting/agent-nrintegrationerrors-appear-insights
               - title: Environment and services
                 path: /docs/apm/agents/manage-apm-agents/troubleshooting/get-environment-data-about-your-apm-app
-  - title: 'Measure user satisfaction with Apdex'
-    path: /docs/apm/new-relic-apm/apdex/apdex-measure-user-satisfaction
   - title: Transactions
     pages:
       - title: What is a transaction?
@@ -1303,8 +1320,6 @@ pages:
     pages:
       - title: Monitoring
         pages:
-          - title: APM Summary page
-            path: /docs/apm/apm-ui-pages/monitoring/apm-summary-page-view-transaction-apdex-usage-data
           - title: Response time chart types (APM and browser)
             path: /docs/apm/apm-ui-pages/monitoring/response-time-chart-types-apm-browser
           - title: Distributed tracing page

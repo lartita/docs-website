@@ -94,6 +94,7 @@ devices:
   ping_only__10.10.0.220:
     device_name: ping_only
     device_ip: 10.10.0.220
+    provider: kentik-ping
     user_tags:
       owning_team: load_balancing
     ping_only: true
@@ -505,7 +506,7 @@ global:
           <td/>
 
           <td>
-            すべてのSNMPポーリングを無効にし、 `true`の場合にこのデバイスの[応答時間](#response_time-attribute)ポーリングを有効にします。この設定は、 `global.response_time`属性を上書きします。デフォルトでは、 `false`に設定されています。
+            `true`の場合、すべての SNMP ポーリングを無効にし、このデバイスの [応答時間](#response_time-attribute) ポーリングを有効にします。この設定は、 `global.response_time` 属性をオーバーライドします。デフォルトでは、 `false`に設定されています。各 ping_only デバイスに行 `provider: kentik_ping` が含まれていることを確認してください。
           </td>
         </tr>
 
@@ -681,7 +682,7 @@ global:
           </td>
 
           <td>
-            [CIDR表記](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation)のターゲットIP範囲の配列。
+            [CIDR 表記](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation)のターゲット IP 範囲の配列。 [タイムアウトを避ける](/docs/network-performance-monitoring/troubleshooting/snmp-discovery-no-devices)ために、これらの範囲のサイズに注意してください。
           </td>
         </tr>
 
@@ -1468,17 +1469,20 @@ docker run -d --name ktranslate-snmp --restart unless-stopped --net=host \
 関連する構成ファイル（ `snmp-base.yaml` ）;次のようにSNMPv3構成スニペットを更新し、シークレット名の前に`aws.sm.`を付けます。
 
 ```yaml
-  default_v3:
-    user_name: aws.sm.SECRET_NAME_1
-    authentication_protocol: MD5
-    authentication_passphrase: aws.sm.SECRET_NAME_2
-    privacy_protocol: AES256
-    privacy_passphrase: aws.sm.SECRET_NAME_3
+  default_v3: aws.sm.secret.name
 ```
 
-<Callout variant="tip">
-  値ごとに専用のシークレットを作成する必要があります。上記の例では、3つの異なる秘密の名前が使用されていることに注意してください。
-</Callout>
+以下の例のように、関連するすべてのキーと値のペアを含む JSON 形式でシークレットを保存する必要があります。
+
+```json
+{ 
+"user_name": "YourUserName", 
+"authentication_protocol": "MD5", 
+"authentication_passphrase": "abcd1234", 
+"privacy_protocol": "AES256", 
+"privacy_passphrase": "1234ABCD" 
+}
+```
 
 ## 複数のSNMPv3プロファイルを使用した検出の実行 [#multiple-v3-discovery]
 
